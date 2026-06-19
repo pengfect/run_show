@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/map/map",
+    "pages/import/import"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2c3e50",
+    "navigationBarTitleText": "跑步秀",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#ff6b6b",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "统计",
+        "iconPath": "images/icon-stats.png",
+        "selectedIconPath": "images/icon-stats-active.png"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图",
+        "iconPath": "images/icon-map.png",
+        "selectedIconPath": "images/icon-map-active.png"
+      },
+      {
+        "pagePath": "pages/import/import",
+        "text": "导入",
+        "iconPath": "images/icon-import.png",
+        "selectedIconPath": "images/icon-import-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,70 @@
+<!--pages/import/import.wxml-->
+
+<view class="container">
+  <!-- 标题 / Title -->
+  <view class="section">
+    <view class="section-title">导入数据 / Import Data</view>
+    <view style="color: #999; font-size: 24rpx;">从数字心动导入你的跑步数据 / Import your running data from Digital Zhixin</view>
+  </view>
+
+  <!-- 输入表单 / Input form -->
+  <view class="section">
+    <view class="form-group">
+      <label class="form-label">用户名 / Username</label>
+      <input
+        class="form-input"
+        type="text"
+        placeholder="请输入数字心动用户名 / Enter Digital Zhixin username"
+        value="{{username}}"
+        bindinput="onUsernameChange"
+        disabled="{{importing}}"
+      />
+    </view>
+
+    <view class="form-group">
+      <label class="form-label">密码 / Password</label>
+      <input
+        class="form-input"
+        type="password"
+        placeholder="请输入密码 / Enter password"
+        value="{{password}}"
+        bindinput="onPasswordChange"
+        disabled="{{importing}}"
+      />
+    </view>
+  </view>
+
+  <!-- 警告信息 / Warning -->
+  <view class="section warning">
+    <view style="color: #ff6b6b; font-size: 24rpx; margin-bottom: 10rpx;">⚠️ 安全提示 / Security Notice:</view>
+    <view style="color: #666; font-size: 24rpx; line-height: 1.6;">
+      你的账号密码仅用于与数字心动平台通信，不会被存储。
+      Your credentials are only used to communicate with Digital Zhixin and will not be stored.
+    </view>
+  </view>
+
+  <!-- 导入按钮 / Import button -->
+  <view class="section" style="text-align: center;">
+    <button
+      class="btn btn-primary"
+      bindtap="importData"
+      disabled="{{importing}}"
+      loading="{{importing}}"
+    >
+      {{importing ? '导入中... / Importing...' : '开始导入 / Start Import'}}
+    </button>
+  </view>
+
+  <!-- 结果显示 / Result display -->
+  <block wx:if="{{importResult}}">
+    <view class="section result" style="{{importResult.success ? 'background-color: #f0f8f0;' : 'background-color: #fff0f0;'}}">
+      <view style="{{importResult.success ? 'color: #27ae60;' : 'color: #e74c3c;'}}; font-size: 28rpx; margin-bottom: 10rpx;">
+        {{importResult.success ? '✓ 成功 / Success' : '✗ 失败 / Failed'}}
+      </view>
+      <view style="color: #666; font-size: 26rpx;">
+        {{importResult.message}}
+      </view>
+      <button class="btn btn-text" bindtap="clearResult" style="margin-top: 20rpx;">关闭 / Close</button>
+    </view>
+  </block>
+</view>

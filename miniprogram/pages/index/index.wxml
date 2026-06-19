@@ -1,0 +1,72 @@
+<!--pages/index/index.wxml-->
+
+<view class="container">
+  <!-- 标题 / Title -->
+  <view class="section">
+    <view class="section-title">跑步统计 / Running Statistics</view>
+    <view style="color: #999; font-size: 24rpx;">用户: {{username}}</view>
+  </view>
+
+  <!-- 加载状态 / Loading state -->
+  <block wx:if="{{loading}}">
+    <view class="section" style="text-align: center; padding: 40rpx;">
+      <text>加载中... / Loading...</text>
+    </view>
+  </block>
+
+  <!-- 统计数据 / Statistics data -->
+  <block wx:else>
+    <!-- 总里程 / Total distance -->
+    <view class="section">
+      <view class="stat-item">
+        <view class="stat-label">总里程 / Total Distance</view>
+        <view class="stat-value">{{stats.totalDistance}} km</view>
+      </view>
+    </view>
+
+    <!-- 跑步次数 / Total runs -->
+    <view class="section">
+      <view class="stat-item">
+        <view class="stat-label">跑步次数 / Total Runs</view>
+        <view class="stat-value">{{stats.totalRuns}}</view>
+      </view>
+    </view>
+
+    <!-- 城市数 / Cities -->
+    <view class="section">
+      <view class="stat-item">
+        <view class="stat-label">城市数 / Cities</view>
+        <view class="stat-value">{{stats.cities}}</view>
+      </view>
+    </view>
+
+    <!-- 马拉松场次 / Marathons -->
+    <view class="section">
+      <view class="stat-item">
+        <view class="stat-label">马拉松场次 / Marathons</view>
+        <view class="stat-value">{{stats.marathons}}</view>
+      </view>
+    </view>
+
+    <!-- 全马PB / Marathon PB -->
+    <view class="section">
+      <view class="stat-item">
+        <view class="stat-label">全马PB / Marathon PB</view>
+        <view class="stat-value">{{stats.marathonPB}}</view>
+      </view>
+    </view>
+
+    <!-- ITRA积分 / ITRA score -->
+    <view class="section">
+      <view class="stat-item">
+        <view class="stat-label">ITRA积分 / ITRA Score</view>
+        <view class="stat-value">{{stats.itraScore}}</view>
+      </view>
+    </view>
+
+    <!-- 刷新按钮 / Refresh button -->
+    <view class="section" style="text-align: center;">
+      <button class="btn" bindtap="refreshData">刷新数据 / Refresh</button>
+    </view>
+  </block>
+</view>

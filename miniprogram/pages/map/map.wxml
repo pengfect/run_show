@@ -1,0 +1,21 @@
+<!--pages/map/map.wxml-->
+
+<view class="container">
+  <!-- 地图 / Map -->
+  <map
+    style="width: 100%; height: 100vh;"
+    latitude="{{latitude}}"
+    longitude="{{longitude}}"
+    scale="{{scale}}"
+    markers="{{markers}}"
+    show-location
+    bindmarkertap="onMarkerTap"
+  ></map>
+
+  <!-- 加载指示 / Loading indicator -->
+  <block wx:if="{{loading}}">
+    <view class="loading-overlay">
+      <text>加载地图中... / Loading map...</text>
+    </view>
+  </block>
+</view>
